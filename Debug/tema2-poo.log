@@ -1,0 +1,16 @@
+﻿  Agent.cpp
+  AgentTank.cpp
+  Game.cpp
+C:\Users\vlasc\OneDrive\Desktop\Survival Game\Game.cpp(9,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Map.cpp
+C:\Users\vlasc\OneDrive\Desktop\Survival Game\Map.cpp(40,11): warning C4309: 'initializing': truncation of constant value
+C:\Users\vlasc\OneDrive\Desktop\Survival Game\Map.cpp(45,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\vlasc\OneDrive\Desktop\Survival Game\Map.cpp(56,11): warning C4309: 'initializing': truncation of constant value
+C:\Users\vlasc\OneDrive\Desktop\Survival Game\Map.cpp(58,6): warning C4309: '=': truncation of constant value
+C:\Users\vlasc\OneDrive\Desktop\Survival Game\Map.cpp(66,6): warning C4309: '=': truncation of constant value
+C:\Users\vlasc\OneDrive\Desktop\Survival Game\Map.cpp(72,6): warning C4309: '=': truncation of constant value
+C:\Users\vlasc\OneDrive\Desktop\Survival Game\Map.cpp(74,6): warning C4309: '=': truncation of constant value
+C:\Users\vlasc\OneDrive\Desktop\Survival Game\Map.cpp(80,6): warning C4309: '=': truncation of constant value
+  SurvivalGame.cpp
+  Generating Code...
+  tema2-poo.vcxproj -> C:\Users\vlasc\OneDrive\Desktop\Survival Game\Debug\tema2-poo.exe
