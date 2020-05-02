@@ -148,6 +148,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Agent.cpp" />
+    <ClCompile Include="Agent007.cpp" />
+    <ClCompile Include="AgentFighter.cpp" />
     <ClCompile Include="AgentTank.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -155,6 +157,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agent.h" />
+    <ClInclude Include="Agent007.h" />
+    <ClInclude Include="AgentFighter.h" />
     <ClInclude Include="AgentTank.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />

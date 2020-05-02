@@ -3,7 +3,7 @@
 
 Map::Map(const unsigned row, const unsigned col): rows(row), columns(col)
 {
-	map.resize(row + 1);
+	map.resize(row);
 	for (unsigned int i = 0; i < row; i++)
 	{
 		map[i].resize(col, " ");
@@ -25,7 +25,7 @@ unsigned Map::get_columns() const
 	return this->columns;
 }
 
-bool Map::get_agent(unsigned row, unsigned col) const
+bool Map::is_agent(unsigned row, unsigned col) const
 {
 	return this->map[row][col] == " ";
 }
@@ -37,48 +37,51 @@ void Map::insert_agent(Agent* a, string s)
 
 void Map::display_map() const
 {
-	char c = 186;
-
 	for (unsigned i = 0; i < this->rows; i++)
 	{
-		cout << c << ' ';
-		for (int j = 0; j < this->columns; j++)
+		cout << (char)186 << ' ';
+		for (unsigned j = 0; j < this->columns; j++)
 		{
 			cout << this->map[i][j] << ' ';
 		}
-		cout << c;
+		cout << (char)186;
 		cout << '\n';
 	}
 }
 
+vector<Agent*> Map::get_agents()
+{
+	return this->agents;
+}
+
+void Map::update_map(pair<int, int> old_pos, pair<int, int> new_pos, string s)
+{
+	this->map[old_pos.first][old_pos.second] = " ";
+	this->map[new_pos.first][new_pos.second] = s;
+}
+
 ostream& operator<< (ostream& out, const Map& map)
 {
-	char c = 201;
-	out << c;
-	c = 205;
+	out << (char)201;
 	unsigned row = map.get_rows();
 	unsigned col = map.get_columns();
 
 	for (unsigned i = 0; i < 2 * col + 1; i++)
 	{
-		out << c;
+		out << (char)205;
 	}
-	c = 187;
-	out << c;
+	out << (char)187;
 	out << '\n';
 
 	map.display_map();
 
-	c = 200;
-	out << c;
-	c = 205;
+	out << (char)200;
 	for (unsigned int i = 0; i < 2 * col + 1; i++)
 	{
-		out << c;
+		out << (char)205;
 	}
 
-	c = 188;
-	out << c << '\n';
+	out << (char)188 << '\n';
 
 	return out;
 }
