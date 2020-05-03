@@ -7,7 +7,7 @@ private:
 	Map* map;
 	static unsigned rounds;
 public:
-	Game();
+	Game() : map(NULL) { cout << "Initializing game...\n"; };
 	void start_game();
 	~Game();
 };

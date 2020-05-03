@@ -6,15 +6,9 @@
 
 unsigned Game::rounds = 0;
 
-Game::Game()
-{
-	cout << "Initializing game..." << '\n';
-	this->map = NULL;
-}
-
 void Game::start_game()
 {
-	srand(time(NULL));
+	srand(time(NULL)); // pentru functia rand()
 
 	unsigned row;
 	do
@@ -36,67 +30,55 @@ void Game::start_game()
 		cout << "Number of agents for every type(Min 7): ";
 		cin >> ag;
 	} while (ag < 7);
+	cout << '\n';
 
-	map = new Map(row, col);
+	map = new Map(row, col); // creez mapa
 
-		for (unsigned i = 1; i <= ag; i++) // generez random pozitia agentilor si ii inserez intr-un vector
-		{
-			Agent* a;
-			unsigned randrow = rand() % row; // Agent Tank
-			unsigned randcol = rand() % col;
-			while (map->is_agent(randrow, randcol) == false)
-			{
-				randrow = rand() % row;
-				randcol = rand() % col;
-			}
-			a = new AgentTank(randrow, randcol);
-			map->add_agent(a);
-			map->insert_agent(a, a->get_name());
+	Agent* a;
+	for (unsigned i = 1; i <= ag; i++) // spawnez agentii pe harta
+	{
+		a = new AgentTank;
+		a->spawn_agent(*map);
 
-			randrow = rand() % row; // Agent Fighter
-			randcol = rand() % col;
-			while (map->is_agent(randrow, randcol) == false)
-			{
-				randrow = rand() % row;
-				randcol = rand() % col;
-			}
-			a = new AgentFighter(randrow, randcol);
-			map->add_agent(a);
-			map->insert_agent(a, a->get_name());
+		a = new AgentFighter;
+		a->spawn_agent(*map);
 
-			randrow = rand() % row; // Agent 007
-			randcol = rand() % col;
-			while (map->is_agent(randrow, randcol) == false)
-			{
-				randrow = rand() % row;
-				randcol = rand() % col;
-			}
-			a = new Agent007(randrow, randcol);
-			map->add_agent(a);
-			map->insert_agent(a, a->get_name());
-		}
+		a = new Agent007;
+		a->spawn_agent(*map);
+	}
 
 	char cont = 'y';
-	vector<Agent*> ags = map->get_agents();
 	do // in fiecare runda
 	{
-		cout << "Round: " << this->rounds << '\n';
-		this->rounds++;
-		cout << *map;
-		cout << '\n' << "Continue? n - No, y - Yes: ";
-		cin >> cont;
-
-		for (int i = 0; i < ags.size(); i++) // pentru fiecare agent
+		if (Agent::get_agents_alive() == 1)
 		{
-			pair<unsigned, unsigned> current_position = ags[i]->position; // pozitia agentului curent
-			pair<int, int> closest_agent;
-			closest_agent = ags[i]->search(*map); // cautam cel mai apropiat agent(daca exista) din range-ul lui
-			ags[i]->move(closest_agent, *map);
+			cout << *map;
+			cout << "This game took " << this->rounds << " rounds.\n";
+			cout << map->get_agents()[0]->get_name() << " killed everyone and won the game! Congrats! :D\n";
 		}
-		cout << '\n';
-		if (cont != 'n' && cont != 'y')
+		else
+		{
+			cout << "Round: " << this->rounds << " - Agents alive: " << Agent::get_agents_alive() << '\n';
+			this->rounds++;
+			cout << *map;
+			cout << '\n' << "Continue? n - No, y - Yes: ";
+			cin >> cont;
+			cout << '\n';
+		}
+
+		if (cont != 'n' && cont != 'y' || Agent::get_agents_alive() == 1)
 		{
 			cont = 'n';
+		}
+		else
+		{
+			for (int i = 0; i < map->get_agents().size(); i++) // pentru fiecare agent
+			{
+				pair<unsigned, unsigned> current_position = map->get_agents()[i]->get_position(); // pozitia agentului curent
+				pair<int, int> closest_agent;
+				closest_agent = map->get_agents()[i]->search(*map); // cautam cel mai apropiat agent(daca exista) din range-ul lui
+				map->get_agents()[i]->move(closest_agent, *map); // mutam agentul catre pozitia respectiva si initializam lupta(daca e cazul)
+			}
 		}
 	} while (cont == 'y');
 }

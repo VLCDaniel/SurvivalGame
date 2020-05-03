@@ -32,7 +32,7 @@ bool Map::is_agent(unsigned row, unsigned col) const
 
 void Map::insert_agent(Agent* a, string s)
 {
-	this->map[a->position.first][a->position.second] = s;
+	this->map[a->get_position().first][a->get_position().second] = s;
 }
 
 void Map::display_map() const
@@ -49,7 +49,7 @@ void Map::display_map() const
 	}
 }
 
-vector<Agent*> Map::get_agents()
+vector<Agent*> Map::get_agents() const
 {
 	return this->agents;
 }
@@ -58,6 +58,17 @@ void Map::update_map(pair<int, int> old_pos, pair<int, int> new_pos, string s)
 {
 	this->map[old_pos.first][old_pos.second] = " ";
 	this->map[new_pos.first][new_pos.second] = s;
+}
+
+void Map::remove_agent(Agent* a)
+{
+	for (int i = 0; i < this->agents.size(); i++)
+	{
+		if (a == this->agents[i])
+		{
+			this->agents.erase(this->agents.begin() + i);
+		}
+	}
 }
 
 ostream& operator<< (ostream& out, const Map& map)

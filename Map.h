@@ -24,7 +24,10 @@ public:
 	void insert_agent(Agent*, string); // adaugam un agent in matrice
 	void update_map(pair<int, int>, pair<int, int>, string); // actualizam harta in fiecare runda
 	void display_map() const;
-	vector<Agent*> get_agents();
+	vector<Agent*> get_agents() const;
+	void remove_agent(Agent*);
 	friend ostream& operator<<(ostream&, const Map&);
+
+	~Map() {};
 };
 
