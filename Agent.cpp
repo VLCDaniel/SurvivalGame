@@ -1,5 +1,9 @@
 #include<math.h>
 #include "Agent.h"
+#include "Armor.h"
+#include "Sword.h"
+#include "Socks.h"
+#include "Gloves.h"
 
 unsigned Agent::NumberOfAgents = 0;
 
@@ -23,6 +27,29 @@ void Agent::spawn_agent(Map& map) // generez random pozitia agentilor si ii inse
 	this->position.first = randrow;
 	this->position.second = randcol;
 
+	int x = rand() % 4; // generez un item random pentru fiecare agent
+	if (x == 0)
+	{
+		this->item = new Armor;
+		item->add_status(this);
+	}
+	if (x == 1)
+	{
+		this->item = new Sword;
+		item->add_status(this);
+	}
+	if (x == 2)
+	{
+		this->item = new Socks;
+		item->add_status(this);
+	}
+	if (x == 3)
+	{
+		this->item = new Gloves;
+		item->add_status(this);
+	}
+
+	cout << "Agent " << this->name << " has gotten: " << this->item->get_item_name() << " as his item. Good luck to battle!\n\n";
 	map.add_agent(this);
 	map.insert_agent(this, this->get_name());
 }

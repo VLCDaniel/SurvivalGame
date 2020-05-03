@@ -62,7 +62,7 @@ void Map::update_map(pair<int, int> old_pos, pair<int, int> new_pos, string s)
 
 void Map::remove_agent(Agent* a)
 {
-	for (int i = 0; i < this->agents.size(); i++)
+	for (int i = 0; i < (int)this->agents.size(); i++)
 	{
 		if (a == this->agents[i])
 		{

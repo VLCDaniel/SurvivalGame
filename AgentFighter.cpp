@@ -17,7 +17,7 @@ void AgentFighter::fight(Agent* a, Map& map)
 		int chance = rand() % 100;
 		if (chance > 0 && chance <= 20) // agentul Tank are 20% sansa sa dea crit
 		{
-			a->set_health(a->get_health() - this->get_attack() * 1.5);
+			a->set_health(a->get_health() - int(this->get_attack() * 1.5));
 
 			if (a->get_health() < 0)
 			{

@@ -1,13 +1,2 @@
 ﻿  Agent.cpp
-  Agent007.cpp
-  AgentFighter.cpp
-C:\Users\vlasc\OneDrive\Desktop\Survival Game\AgentFighter.cpp(20,34): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  AgentTank.cpp
-  Game.cpp
-C:\Users\vlasc\OneDrive\Desktop\Survival Game\Game.cpp(11,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\vlasc\OneDrive\Desktop\Survival Game\Game.cpp(75,22): warning C4018: '<': signed/unsigned mismatch
-  Map.cpp
-C:\Users\vlasc\OneDrive\Desktop\Survival Game\Map.cpp(65,20): warning C4018: '<': signed/unsigned mismatch
-  SurvivalGame.cpp
-  Generating Code...
   tema2-poo.vcxproj -> C:\Users\vlasc\OneDrive\Desktop\Survival Game\Debug\tema2-poo.exe

@@ -72,7 +72,7 @@ void Game::start_game()
 		}
 		else
 		{
-			for (int i = 0; i < map->get_agents().size(); i++) // pentru fiecare agent
+			for (int i = 0; i < (int)map->get_agents().size(); i++) // pentru fiecare agent
 			{
 				pair<unsigned, unsigned> current_position = map->get_agents()[i]->get_position(); // pozitia agentului curent
 				pair<int, int> closest_agent;

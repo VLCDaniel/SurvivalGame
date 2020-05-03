@@ -152,8 +152,13 @@
     <ClCompile Include="AgentFighter.cpp" />
     <ClCompile Include="AgentTank.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Armor.cpp" />
+    <ClCompile Include="Gloves.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Socks.cpp" />
     <ClCompile Include="SurvivalGame.cpp" />
+    <ClCompile Include="Sword.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agent.h" />
@@ -161,7 +166,12 @@
     <ClInclude Include="AgentFighter.h" />
     <ClInclude Include="AgentTank.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Armor.h" />
+    <ClInclude Include="Gloves.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Socks.h" />
+    <ClInclude Include="Sword.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
