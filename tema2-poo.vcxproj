@@ -152,7 +152,6 @@
     <ClCompile Include="AgentFighter.cpp" />
     <ClCompile Include="AgentTank.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Gloves.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Map.cpp" />
