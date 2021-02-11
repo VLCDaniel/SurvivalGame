@@ -1,4 +1,0 @@
-C:\Users\vlasc\OneDrive\Desktop\tema2-poo\Debug\tema2-poo.exe
-C:\Users\vlasc\OneDrive\Desktop\tema2-poo\Debug\tema2-poo.pdb
-C:\Users\vlasc\OneDrive\Desktop\Survival Game\Debug\tema2-poo.exe
-C:\Users\vlasc\OneDrive\Desktop\Survival Game\Debug\tema2-poo.pdb
